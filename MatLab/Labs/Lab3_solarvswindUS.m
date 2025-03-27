@@ -1,0 +1,26 @@
+clear,clf,clc;
+year=xlsread('UNdata_WindProduction','C1145:C1166');
+year=year-1991;
+fW=xlsread('UNdata_WindProduction','E1145:E1166');
+fS=xlsread('UNdata_SolarProduction','E702:E723');
+coeff_1st=polyfit(year,fW,3);
+coeff_2nd=polyfit(year,fS,3);
+yfit1=polyval(coeff_1st,year);
+yfit2=polyval(coeff_2nd,year);
+residualsW=fW-yfit1;
+residualsS=fS-yfit2;
+residual_normW=sqrt(sum(residualsW.^2));
+residual_normS=sqrt(sum(residualsS.^2));
+subplot(2,1,1);
+plot(year,fW,'r*');hold on;
+plot(year,fS,'g*');hold on;
+plot(year,yfit1,'k-');hold on;
+plot(year,yfit2,'m-');hold on;
+xlim([0 22]);
+title('Total Production From Wind and Solar Sources');
+legend('Wind Production','Solar Production','Location','Northwest');
+subplot(2,1,2)
+bar([year,residualsW,residualsS]);
+xlim([0 23]);
+xlabel('Year Since 1991');
+ylabel('Residuals');

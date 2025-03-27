@@ -1,0 +1,10 @@
+clear;
+clc;
+clf;
+t=-4:0.2:7;
+y=(1/3)*t.^4-2*t.^3-2.5*t.^2+5*t+4;
+plot(t,y,'ro-');
+xlim([-4 7]);
+xlabel('time');
+ylabel('f(t)');
+title('polynolmial');

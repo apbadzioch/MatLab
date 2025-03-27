@@ -1,0 +1,11 @@
+clear;
+clc;
+clf;
+tau = 0.2;
+t = 0:0.03:2;
+y = exp(-t/tau);
+plot(t,y, 'ro-');
+ylim([-.5 1.2]);
+xlabel('time');
+ylabel('e^(^-^t^/^\tau^)');
+title('exponential function');

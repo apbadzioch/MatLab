@@ -1,0 +1,10 @@
+clear;
+clc;
+clf;
+theta = 0:pi/60:6*pi;
+y = cos(theta);
+plot(theta,y,'ro-');
+xlim([0 6*pi]);
+xlabel('\theta');
+ylabel('cos(\theta)');
+title('cos wave');
